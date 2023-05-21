@@ -30,6 +30,15 @@ const NewFeed = () => {
         >
           <MyPostWidget picturePath={picturePath} />
           <PostsWidget userId={_id} />
+          <iframe
+                width="585"
+                height="298"
+                src="https://www.youtube.com/embed/F_ikiN6YpSw"
+                title="Video giới thiệu Bitrix24"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
         </Box>
         {isNonMobileScreens && (
           <Box flexBasis="26%">

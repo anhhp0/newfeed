@@ -26,6 +26,7 @@ import { setMode, setLogout } from "state";
 import { useNavigate } from "react-router-dom";
 import FlexBetween from "components/FlexBetween";
 import DashboardRoundedIcon from '@mui/icons-material/DashboardRounded';
+import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 
 const Navbar = () => {
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
@@ -40,7 +41,7 @@ const Navbar = () => {
   const neutralLight = theme.palette.neutral.light;
   const dark = theme.palette.neutral.dark;
   const background = theme.palette.background.default;
-  const primaryLight = theme.palette.primary.light;
+  // const primaryLight = theme.palette.primary.light;
   const alt = theme.palette.background.alt;
 
   const fullName = `${user.firstName} ${user.lastName}`;
@@ -60,7 +61,7 @@ const Navbar = () => {
           onClick={() => navigate("/newfeed")}
           sx={{
             "&:hover": {
-              color: primaryLight,
+              color: "#cca752",
               cursor: "pointer",
             },
           }}
@@ -74,7 +75,7 @@ const Navbar = () => {
             gap="3rem"
             padding="0.1rem 1.5rem"
           >
-            <InputBase placeholder="Search..." />
+            <InputBase placeholder="Tìm kiếm..." />
             <IconButton>
               <Search />
             </IconButton>
@@ -85,11 +86,15 @@ const Navbar = () => {
       {/* DESKTOP NAV */}
       {isNonMobileScreens ? (
         <FlexBetween gap="2rem">
-          <Typography
+          {/* <Typography
             fontWeight="bold"
             fontSize="clamp(1rem, 2rem, 2.25rem)"
-            color="primary"
+            color="#white"
             onClick={() => navigate("/dashboard")}
+            // onClick={(e) => {
+            //   e.preventDefault();
+            //   window.location.href = 'http://localhost:3002';
+            // }}
             sx={{
               "&:hover": {
                 color: primaryLight,
@@ -98,7 +103,26 @@ const Navbar = () => {
             }}
           >
             Dashboard
-          </Typography>
+          </Typography> */}
+
+            <IconButton
+              onClick={() => navigate("/newfeed")}
+              sx={{ fontSize: "25px" }}
+            >
+              <HomeRoundedIcon sx={{ fontSize: "25px" }}></HomeRoundedIcon>
+            </IconButton>
+            
+            <IconButton
+              onClick={() => navigate("/dashboard")}
+              // onClick={(e) => {
+              //   e.preventDefault();
+              //   window.location.href = 'http://localhost:3002';
+              // }}
+              sx={{ fontSize: "25px" }}
+            >
+              <DashboardRoundedIcon sx={{ fontSize: "25px" }}></DashboardRoundedIcon>
+            </IconButton>
+
           <IconButton onClick={() => dispatch(setMode())}>
             {theme.palette.mode === "dark" ? (
               <DarkMode sx={{ fontSize: "25px" }} />
@@ -173,7 +197,20 @@ const Navbar = () => {
             gap="3rem"
           >
             <IconButton
-              onClick={() => navigate("/dashboard")}
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = 'http://localhost:3002';
+              }}
+              sx={{ fontSize: "25px" }}
+            >
+              <HomeRoundedIcon sx={{ fontSize: "25px" }}></HomeRoundedIcon>
+            </IconButton>
+
+            <IconButton
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = 'http://localhost:3002';
+              }}
               sx={{ fontSize: "25px" }}
             >
               <DashboardRoundedIcon sx={{ fontSize: "25px" }}></DashboardRoundedIcon>

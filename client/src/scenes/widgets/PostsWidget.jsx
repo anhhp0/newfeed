@@ -58,7 +58,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
             postUserId={userId}
             name={`${firstName} ${lastName}`}
             description={description}
-            location={location}
+            location={`${location}-> Tất cả nhân viên`}
             picturePath={picturePath}
             userPicturePath={userPicturePath}
             likes={likes}

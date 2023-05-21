@@ -22,11 +22,20 @@ import { useGetDashboardQuery } from "state/api";
 import StatBox from "components/StatBox";
 // import { useGetTransactionsQuery } from "state/api";
 import TransactionsChart from "components/TransactionsChart";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   const theme = useTheme();
   const isNonMediumScreens = useMediaQuery("(min-width: 1200px)");
   const { data } = useGetDashboardQuery();
+  const navigate = useNavigate();
+
+  // const neutralLight = theme.palette.neutral.light;
+  // const dark = theme.palette.neutral.dark;
+  // const background = theme.palette.background.default;
+  // const primaryLight = theme.palette.primary.light;
+  // const alt = theme.palette.background.alt;
+
   // const { data, isLoading } = useGetDashboardQuery();
 
   // const [page, setPage] = useState(0);
@@ -71,14 +80,27 @@ const Dashboard = () => {
 
   return (
     <Box m="1.5rem 2.5rem">
+      <Typography
+          fontWeight="bold"
+          fontSize="clamp(1rem, 2rem, 2.25rem)"
+          color="primary"
+          onClick={() => navigate("/newfeed")}
+          sx={{
+            "&:hover": {
+              color: "#cca752",
+              cursor: "pointer",
+            },
+          }}
+        >
+          DASHBOARD
+        </Typography>
       <FlexBetween>
-        <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
-
+        <Header subtitle="Welcome to your dashboard. Click to DASHBOARD to refresh page" />
         <Box>
           <Button
             sx={{
               backgroundColor: theme.palette.secondary.light,
-              color: theme.palette.background.alt,
+              color: "#cca752",
               fontSize: "14px",
               fontWeight: "bold",
               padding: "10px 20px",
