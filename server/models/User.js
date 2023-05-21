@@ -4,22 +4,22 @@ const UserSchema = new mongoose.Schema(
   {
     firstName: {
       type: String,
-      required: true, //can remove this comment code after import data to database; check validate inputed function registration
+      required: false, //can remove this comment code after import data to database; check validate inputed function registration
       min: 2,
       max: 50,
     },
     lastName: {
       type: String,
-      required: true, //can remove this comment code after import data to database; check validate inputed function registration
+      required: false, //can remove this comment code after import data to database; check validate inputed function registration
       min: 2,
       max: 50,
     },
-    // name: {
-    //   type: String,
-    //   required: true, //can remove this comment code after import data to database; check validate inputed function registration
-    //   min: 2,
-    //   max: 100,
-    // },
+    name: {
+      type: String,
+      required: true, //can remove this comment code after import data to database; check validate inputed function registration
+      min: 2,
+      max: 100,
+    },
     email: {
       type: String,
       required: true,
